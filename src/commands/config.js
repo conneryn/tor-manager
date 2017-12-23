@@ -26,8 +26,9 @@ exports.handler = async function (argv) {
   }
 
   for(var key in options.withoutDefaults) {
-    if(typeof(argv[camelcase(key)]) !== 'undefined')
-      config[key] = argv[key];
+    let camelKey = camelcase(key);
+    if(typeof(argv[camelKey]) !== 'undefined')
+      config[camelKey] = argv[camelKey];
   }
   await utilities.saveConfig(argv, config);
   console.log("Default configuration updated.");

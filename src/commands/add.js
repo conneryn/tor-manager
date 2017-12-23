@@ -21,8 +21,9 @@ exports.handler = async function (argv) {
     name: argv.name
   };
   for(var key in options.withoutDefaults) {
-    if(typeof(argv[camelcase(key)]) !== 'undefined')
-      instanceConfig[key] = argv[key];
+    let camelKey = camelcase(key);
+    if(typeof(argv[camelKey]) !== 'undefined')
+      instanceConfig[camelKey] = argv[camelKey];
   }
   config.instances[argv.name] = instanceConfig;
 
