@@ -18,7 +18,7 @@ exports.handler = async function (argv) {
 
   for(let instance of Object.values(config.instances)) {
     const filename = path.join(argv.torDir, instance.name + constants.TORRC_EXTENSION);
-    var result = await build(Object.assign({}, instance, config, argv));
+    var result = await build(Object.assign({}, argv, config, instance));
 
     await utilities.ensureParentDirectoryExists(filename);
     fs.writeFileSync(filename, result, 'utf8');

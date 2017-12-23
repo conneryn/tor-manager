@@ -27,11 +27,11 @@ exports.handler = async function (argv) {
       console.log("Invalid instance '" + argv.name + "'.");
       return;
     }
-    await osUtilities.executionCommand(argv.action, argv.name, Object.assign({}, config.instances[argv.name], argv));
+    await osUtilities.executionCommand(argv.action, argv.name, Object.assign({}, argv, config, config.instances[argv.name]));
     return;
   }
 
   for(let instance in config.instances) {
-    await utilities.executionCommand(argv.action, instance.name, Object.assign({}, instance, argv));
+    await utilities.executionCommand(argv.action, instance.name, Object.assign({}, argv, config, instance));
   }
 }
