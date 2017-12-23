@@ -16,14 +16,14 @@ exports.handler = async function (argv) {
   }
 
   let isUpdate = config.instances[argv.name] != null;
-  config.instances[argv.name] = {
-    ip: argv.ip,
-    name: argv.name,
-    exitPolicy: argv.exitPolicy,
-    exitPolicyFile: argv.exitPolicyFile,
-    orPort: argv.orPort,
-    dirPort: argv.dirPort
+  var instanceConfig = {
+    name: argv.name
   };
+  for(var key in options.withoutDefaults) {
+    if(typeof(argv[camelcase(key)]) !== 'undefined')
+      instanceConfig[key] = argv[key];
+  }
+  config.instances[argv.name] = instanceConfig;
 
   await utilities.saveConfig(argv, config);
 

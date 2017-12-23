@@ -4,9 +4,9 @@ const osUtilities = require('./osUtilities.js');
 var options = {
     'family-prefix': {
       describe: 'name prefix for all your tor instances',
+      default: ''
     },
     'template': {
-      alias: 't',
       describe: 'template for torrc file (Mustache)',
       default: path.join(__dirname, '..', 'templates', 'torrc.template'),
       coerce: path.resolve
@@ -43,7 +43,6 @@ var options = {
       default: '0.0.0.0'
     },
     'exit-policy': {
-      alias: 'e',
       describe: 'default exit policy',
       choices: ['none', 'strict','reduced','all'],
       default: 'none'

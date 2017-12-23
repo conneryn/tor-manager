@@ -1,5 +1,6 @@
 var utilities = require('../utilities/torUtilities.js');
 var options = require('../utilities/options.js');
+var camelcase = require('camelcase');
 
 exports.command = 'config <action>'
 exports.describe = 'override default options'
@@ -25,7 +26,7 @@ exports.handler = async function (argv) {
   }
 
   for(var key in options.withoutDefaults) {
-    if(typeof(argv[key]) !== 'undefined')
+    if(typeof(argv[camelcase(key)]) !== 'undefined')
       config[key] = argv[key];
   }
   await utilities.saveConfig(argv, config);
