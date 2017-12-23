@@ -11,7 +11,7 @@ exports.builder = {
   },
   'action': {
     description: 'action to take',
-    choices: ['start', 'stop', 'restart']
+    choices: ['start', 'stop', 'restart', 'reload']
   },
   'tor-dir': {
     describe: 'tor config directory',
