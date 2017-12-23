@@ -1,5 +1,6 @@
 var utilities = require('../utilities/torUtilities.js');
 const options = require('../utilities/options.js');
+const camelcase = require('camelcase');
 
 exports.command = 'add <name>'
 exports.describe = 'add an instance'
