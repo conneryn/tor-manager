@@ -1,0 +1,4 @@
+ExitPolicy accept *:53        # DNS
+ExitPolicy accept *:80        # HTTP
+ExitPolicy accept *:443       # HTTPS
+ExitPolicy reject *:*

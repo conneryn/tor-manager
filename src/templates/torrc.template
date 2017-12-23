@@ -1,0 +1,18 @@
+## Auto Generated Config
+DataDirectory {{dataDir}}
+ORPort {{ip}}:{{orPort}}
+OutboundBindAddress {{ip}}
+Address {{ip}}
+Nickname {{nickname}}
+DirPort {{ip}}:{{dirPort}}
+
+SOCKSPort 0 # Disable tor locally
+ContactInfo {{contactInfo}}
+RunAsDaemon 1
+DirPortFrontPage {{dirFrontpage}}
+
+MyFamily {{#family}}{{fingerprint}},{{/family}}
+
+{{torNullPolicy}}
+
+{{exitPolicy}}

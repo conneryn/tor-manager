@@ -1,0 +1,11 @@
+{
+  "name": "tor-manager",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "child_process": "^1.0.2",
+    "mustache": "^2.3.0",
+    "onionoo": "^2.0.1",
+    "util": "^0.10.3",
+    "yargs": "^9.0.1"
+  }
+}
