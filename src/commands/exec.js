@@ -32,6 +32,6 @@ exports.handler = async function (argv) {
   }
 
   for(let instance in config.instances) {
-    await utilities.executionCommand(argv.action, instance.name, Object.assign({}, argv, config, instance));
+    await osUtilities.executionCommand(argv.action, instance.name, Object.assign({}, argv, config, instance));
   }
 }
